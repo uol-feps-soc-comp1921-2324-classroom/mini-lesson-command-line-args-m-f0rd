@@ -23,12 +23,12 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    FILE *input = fopen(argv[1], "r");
-    if (!input)
-    {
-        printf("Error: Bad filename\n");
-        return 1;
-    }
+    // FILE *input = fopen(argv[1], "r");
+    // if (!input)
+    // {
+    //     printf("Error: Bad filename\n");
+    //     return 1;
+    // }
 
     // remember: arguments are ALWAYS strings
     int num = atoi(argv[2]);
@@ -38,40 +38,40 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    student *studentData = malloc(num * sizeof(student));
+    // student *studentData = malloc(num * sizeof(student));
 
-    char line[200];
-    char *section;
+    // char line[200];
+    // char *section;
 
-    for (int i = 0; i < num; i++)
-    {
-        fgets(line, 200, input);
+    // for (int i = 0; i < num; i++)
+    // {
+    //     fgets(line, 200, input);
 
-        if (feof(input))
-        {
-            printf("Error: too few lines in file\n");
-            return 3;
-        }
+    //     if (feof(input))
+    //     {
+    //         printf("Error: too few lines in file\n");
+    //         return 3;
+    //     }
 
-        section = strtok(line, ",");
-        if (section != NULL) {
-            strncpy(studentData[i].name, section, sizeof(studentData[i].name) - 1);
-            studentData[i].name[sizeof(studentData[i].name) - 1] = '\0';
-        }
+    //     section = strtok(line, ",");
+    //     if (section != NULL) {
+    //         strncpy(studentData[i].name, section, sizeof(studentData[i].name) - 1);
+    //         studentData[i].name[sizeof(studentData[i].name) - 1] = '\0';
+    //     }
 
-        section = strtok(NULL, ",");
-        if (section != NULL) {
-            strncpy(studentData[i].student_id, section, sizeof(studentData[i].student_id) - 1);
-            studentData[i].student_id[sizeof(studentData[i].student_id) - 1] = '\0';
-        }
+    //     section = strtok(NULL, ",");
+    //     if (section != NULL) {
+    //         strncpy(studentData[i].student_id, section, sizeof(studentData[i].student_id) - 1);
+    //         studentData[i].student_id[sizeof(studentData[i].student_id) - 1] = '\0';
+    //     }
 
-        section = strtok(NULL, ",");
-        if (section != NULL) {
-            studentData[i].grade = atoi(section);
-        }
-    }
+    //     section = strtok(NULL, ",");
+    //     if (section != NULL) {
+    //         studentData[i].grade = atoi(section);
+    //     }
+    // }
 
-    for (int i=0; i<num; i++){
-        printf("%s\t%s\t%d\n", studentData[i].name, studentData[i].student_id, studentData[i].grade);
-    }
+    // for (int i=0; i<num; i++){
+    //     printf("%s\t%s\t%d\n", studentData[i].name, studentData[i].student_id, studentData[i].grade);
+    // }
 }

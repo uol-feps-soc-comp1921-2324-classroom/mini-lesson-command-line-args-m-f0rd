@@ -1,14 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+// ## Your task
 
-int main() {
-    int num1, num2;
+// Inside the tasks/ folder, you will find task.c.
 
-    // Prompt the user for input
-    printf("Enter the first number: ");
-    scanf("%d", &num1);
+// This program asks the user for 2 integers, adds them together, and prints the result. At the moment, it uses a console interface.
 
-    printf("Enter the second number: ");
-    scanf("%d", &num2);
+// - Adapt this program to use command line arguments
+// - Add appropriate validation 
+// - test your program to make sure it works.
+
+/**
+ * argv[0] -> executable name
+ * argv[1] -> num1
+ * argv[2] -> num2
+*/
+int main(int argc, char *argv[]) {
+
+    if (argc != 3){
+        printf("Usage: ./tt <num1> <num2>\n");
+        return 0;
+    }
+// remember: arguments are ALWAYS strings
+    int num1 = atoi(argv[1]);
+    int num2 = atoi(argv[2]);
 
     // Calculate and print the sum
     int sum = num1 + num2;
